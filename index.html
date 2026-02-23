@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitation au Mariage — Aminata & Moussa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --or: #C9A84C;
+    --or-light: #E8CFA0;
+    --or-dark: #8B6914;
+    --vert: #1B4332;
+    --vert-light: #2D6A4F;
+    --creme: #FAF6F0;
+    --blanc: #FFFDF9;
+    --texte: #2C1810;
+    --gris: #8A7968;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--creme);
+    color: var(--texte);
+    overflow-x: hidden;
+  }
+
+  /* ========== MUSIC OVERLAY ========== */
+  #music-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #0a1628 0%, #1B4332 50%, #2C1810 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+  }
+
+  #music-overlay .bismillah-big {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--or);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 20px rgba(201,168,76,0.3); }
+    to { text-shadow: 0 0 60px rgba(201,168,76,0.7); }
+  }
+
+  #music-overlay .ornement {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--or), transparent);
+    margin: 1.5rem auto;
+  }
+
+  #music-overlay h1 {
+    font-family: 'Cinzel', serif;
+    color: white;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: 0.3em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  #music-overlay .names {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--or-light);
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  #music-overlay .click-msg {
+    margin-top: 3rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  #music-overlay .note {
+    font-size: 3rem;
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1rem;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  /* ========== HERO ========== */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0a1628 0%, #1B4332 60%, #2C1810 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  }
+
+  /* Motif géométrique islamique en SVG */
+  #hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23C9A84C' stroke-width='0.3' opacity='0.15'%3E%3Cpath d='M30 0L60 15v30L30 60 0 45V15z'/%3E%3Cpath d='M30 10L50 20v20L30 50 10 40V20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: fadeInUp 1.2s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    color: var(--or);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(201,168,76,0.3);
+  }
+
+  .quran-verse {
+    font-family: 'Amiri', serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--or-light);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-style: italic;
+    max-width: 500px;
+  }
+
+  .divider-or {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 400px;
+  }
+
+  .divider-or span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--or));
+  }
+
+  .divider-or span:last-child {
+    background: linear-gradient(to left, transparent, var(--or));
+  }
+
+  .divider-or .diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--or);
+    transform: rotate(45deg);
+  }
+
+  .hero-label {
+    font-family: 'Cinzel', serif;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: white;
+    line-height: 1;
+    font-weight: 300;
+  }
+
+  .hero-names .and {
+    font-style: italic;
+    color: var(--or);
+    font-size: 0.5em;
+    display: block;
+    margin: 0.3em 0;
+  }
+
+  .hero-date-badge {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 1rem 2.5rem;
+    display: inline-block;
+  }
+
+  .hero-date-badge .date-main {
+    font-family: 'Cinzel', serif;
+    color: var(--or);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-date-badge .date-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--or);
+    opacity: 0.6;
+    animation: bounce 2s ease-in-out infinite;
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  /* ========== SECTIONS COMMUNES ========== */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    letter-spacing: 0.4em;
+    color: var(--or-dark);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--texte);
+  }
+
+  /* ========== CAROUSEL ========== */
+  #photos {
+    background: linear-gradient(180deg, var(--vert) 0%, #0F2D1A 100%);
+    max-width: 100%;
+    padding: 5rem 1.5rem;
+  }
+
+  #photos .section-title { color: var(--or-light); }
+  #photos .section-heading { color: white; }
+
+  .carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Photos simulées avec dégradés magnifiques */
+  .carousel-slide:nth-child(1) { background: linear-gradient(135deg, #c9a84c 0%, #8B6914 30%, #1B4332 100%); }
+  .carousel-slide:nth-child(2) { background: linear-gradient(135deg, #E8CFA0 0%, #c9a84c 40%, #0a1628 100%); }
+  .carousel-slide:nth-child(3) { background: linear-gradient(135deg, #1B4332 0%, #c9a84c 60%, #2C1810 100%); }
+  .carousel-slide:nth-child(4) { background: linear-gradient(135deg, #2C1810 0%, #8B6914 50%, #1B4332 100%); }
+  .carousel-slide:nth-child(5) { background: linear-gradient(135deg, #0a1628 0%, #c9a84c 70%, #E8CFA0 100%); }
+
+  .slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  .slide-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 4rem;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--or);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: var(--or);
+    color: var(--vert);
+  }
+
+  .carousel-btn.prev { left: 1rem; }
+  .carousel-btn.next { right: 1rem; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .dot.active {
+    background: var(--or);
+    width: 24px;
+    border-radius: 3px;
+  }
+
+  /* ========== LOVE STORY ========== */
+  #histoire {
+    padding: 5rem 1.5rem;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--or), var(--or), transparent);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .timeline-content {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    border-left: 3px solid var(--or);
+    position: relative;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    border-left: none;
+    border-right: 3px solid var(--or);
+  }
+
+  .timeline-date {
+    font-family: 'Cinzel', serif;
+    color: var(--or-dark);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-text {
+    color: var(--gris);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .timeline-dot {
+    flex: 0 0 12px;
+    width: 12px;
+    height: 12px;
+    background: var(--or);
+    border-radius: 50%;
+    margin-top: 1.8rem;
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.2);
+    flex-shrink: 0;
+  }
+
+  /* ========== DETAILS ========== */
+  #details {
+    background: var(--texte);
+    max-width: 100%;
+    padding: 5rem 1.5rem;
+  }
+
+  #details .section-title { color: var(--or-light); }
+  #details .section-heading { color: white; }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .detail-card {
+    background: rgba(255,255,255,0.04);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(201,168,76,0.15);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--or), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .detail-card:hover::before { transform: scaleX(1); }
+  .detail-card:hover { background: rgba(201,168,76,0.05); }
+
+  .detail-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .detail-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .detail-value {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .detail-sub {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* ========== RSVP / COMPTE REBOURS ========== */
+  #countdown {
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .countdown-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 3rem;
+  }
+
+  .countdown-box {
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .countdown-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    color: var(--vert);
+    line-height: 1;
+    display: block;
+  }
+
+  .countdown-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gris);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  .countdown-sep {
+    font-size: 2rem;
+    color: var(--or);
+    align-self: center;
+    margin-top: -1rem;
+    opacity: 0.5;
+  }
+
+  /* ========== DUA ========== */
+  #dua {
+    background: linear-gradient(135deg, var(--vert) 0%, #0F2D1A 100%);
+    max-width: 100%;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .dua-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--or);
+    direction: rtl;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .dua-translation {
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #0a0a0a;
+    padding: 2rem;
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+  }
+
+  footer .footer-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--or);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ========== MUSIC CONTROL ========== */
+  #music-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    background: var(--vert);
+    border: 1px solid var(--or);
+    color: var(--or);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  }
+
+  #music-btn:hover { transform: scale(1.1); }
+
+  /* Animations d'entrée */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 600px) {
+    .timeline::before { left: 20px; }
+    .timeline-item { flex-direction: column !important; }
+    .timeline-item:nth-child(even) { text-align: left; }
+    .timeline-item:nth-child(even) .timeline-content { border-right: none; border-left: 3px solid var(--or); }
+    .timeline-dot { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- OVERLAY MUSICAL -->
+<div id="music-overlay" onclick="enterSite()">
+  <div class="note">🎵</div>
+  <div class="bismillah-big">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+  <div class="ornement"></div>
+  <div class="hero-label" style="color:rgba(255,255,255,0.5);">Vous êtes cordialement invités au mariage de</div>
+  <div class="names">Aminata & Moussa</div>
+  <div class="ornement"></div>
+  <div class="click-msg">✦ Appuyez pour ouvrir l'invitation ✦</div>
+</div>
+
+<!-- BOUTON MUSIQUE -->
+<button id="music-btn" onclick="toggleMusic()" title="Musique">🎵</button>
+
+<!-- AUDIO (remplacer src par votre fichier) -->
+<audio id="bgMusic" loop>
+  <source src="musique.m4a" type="audio/mp4">
+</audio>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+    <div class="quran-verse">
+      « Et parmi Ses signes : Il a créé pour vous, de vous-mêmes, des épouses pour que vous viviez en tranquillité avec elles. »
+      <br><small>— Coran 30:21</small>
+    </div>
+    <div class="divider-or">
+      <span></span><div class="diamond"></div><span></span>
+    </div>
+    <div class="hero-label">Invitation au Mariage</div>
+    <div class="hero-names">
+      Aminata
+      <span class="and">& </span>
+      Moussa
+    </div>
+    <div class="hero-date-badge">
+      <div class="date-main">Samedi 15 Mars 2025</div>
+      <div class="date-sub">Dakar, Sénégal</div>
+    </div>
+  </div>
+  <div class="scroll-arrow">↓</div>
+</section>
+
+<!-- PHOTOS CAROUSEL -->
+<div id="photos">
+  <div class="section-title">Nos Moments</div>
+  <div class="section-heading">Galerie Photo</div>
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="photo1.jpg" alt="" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        <div class="slide-caption">Notre première rencontre — Dakar, 2022</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="photo2.jpg" alt="" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        <div class="slide-caption">La demande — Lac Rose, 2023</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="photo3.jpg" alt="" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        <div class="slide-caption">Notre famille réunie — Thiès, 2024</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="photo4.jpg" alt="" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        <div class="slide-caption">Les fiançailles officielles — 2024</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="photo5.jpg" alt="" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        <div class="slide-caption">Bientôt pour toujours ✨</div>
+      </div>
+    </div>
+
+
+    <button class="carousel-btn prev" onclick="prevSlide()">&#8592;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#8594;</button>
+  </div>
+
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- HISTOIRE D'AMOUR -->
+<section id="histoire">
+  <div class="section-title reveal">Notre Histoire</div>
+  <div class="section-heading reveal">L'histoire de notre amour</div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <div class="timeline-date">Juillet 2022</div>
+        <div class="timeline-title">La Rencontre ✨</div>
+        <div class="timeline-text">
+          Lors d'une cérémonie de famille à Dakar, nos regards se sont croisés pour la première fois. Un sourire, une timidité... le début d'une belle histoire voulue par Allah.
+        </div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div style="flex:1"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div style="flex:1"></div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">Décembre 2022</div>
+        <div class="timeline-title">Les Premiers Échanges 💬</div>
+        <div class="timeline-text">
+          Nos familles se rapprochent. Les discussions s'approfondissent, les valeurs s'alignent. On comprend que ce lien est béni.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <div class="timeline-date">Mars 2023</div>
+        <div class="timeline-title">La Demande 💍</div>
+        <div class="timeline-text">
+          Au coucher du soleil sur la plage de l'Almadies, Moussa a demandé la main d'Aminata. Entourés de leurs familles, ils ont dit oui à l'amour et à la vie.
+        </div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div style="flex:1"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div style="flex:1"></div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">15 Mars 2025</div>
+        <div class="timeline-title">Le Grand Jour 🌙</div>
+        <div class="timeline-text">
+          Devant Allah et leurs proches, ils prononcent leurs vœux. Une nouvelle famille naît. Alhamdulillah !
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS DU MARIAGE -->
+<div id="details">
+  <div class="section-title">Informations Pratiques</div>
+  <div class="section-heading" style="color:white; max-width:100%; padding: 0 1rem;">Les Détails du Grand Jour</div>
+
+  <div class="details-grid">
+    <div class="detail-card reveal">
+      <span class="detail-icon">🕌</span>
+      <div class="detail-label">Cérémonie Religieuse</div>
+      <div class="detail-value">Mosquée Omarienne</div>
+      <div class="detail-sub">Dakar-Plateau<br>10h00 — Nikah</div>
+    </div>
+
+    <div class="detail-card reveal">
+      <span class="detail-icon">📅</span>
+      <div class="detail-label">Date</div>
+      <div class="detail-value">Samedi 15 Mars 2025</div>
+      <div class="detail-sub">14 Ramadan 1446 H</div>
+    </div>
+
+    <div class="detail-card reveal">
+      <span class="detail-icon">🎉</span>
+      <div class="detail-label">Réception</div>
+      <div class="detail-value">Salle Terrou-Bi</div>
+      <div class="detail-sub">Corniche Ouest, Dakar<br>À partir de 15h00</div>
+    </div>
+
+    <div class="detail-card reveal">
+      <span class="detail-icon">👗</span>
+      <div class="detail-label">Tenue Suggérée</div>
+      <div class="detail-value">Boubou / Élégant</div>
+      <div class="detail-sub">Couleurs : Or, Vert, Blanc</div>
+    </div>
+
+    <div class="detail-card reveal">
+      <span class="detail-icon">📞</span>
+      <div class="detail-label">Contact</div>
+      <div class="detail-value">+221 77 000 00 00</div>
+      <div class="detail-sub">Pour toute question<br>Famille Diallo & Ndiaye</div>
+    </div>
+
+    <div class="detail-card reveal">
+      <span class="detail-icon">🤲</span>
+      <div class="detail-label">RSVP</div>
+      <div class="detail-value">Avant le 1er Mars</div>
+      <div class="detail-sub">Merci de confirmer<br>votre présence</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPTE À REBOURS -->
+<section id="countdown">
+  <div class="section-title reveal">Le Grand Jour Approche</div>
+  <div class="section-heading reveal">Compte à Rebours</div>
+
+  <div class="countdown-grid">
+    <div class="countdown-box reveal">
+      <span class="countdown-number" id="days">00</span>
+      <div class="countdown-label">Jours</div>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-box reveal">
+      <span class="countdown-number" id="hours">00</span>
+      <div class="countdown-label">Heures</div>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-box reveal">
+      <span class="countdown-number" id="minutes">00</span>
+      <div class="countdown-label">Minutes</div>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-box reveal">
+      <span class="countdown-number" id="seconds">00</span>
+      <div class="countdown-label">Secondes</div>
+    </div>
+  </div>
+
+  <p style="color:var(--gris); font-style:italic; font-size:1.1rem;">
+    « Qu'Allah bénisse cette union et la comble de Sa miséricorde. »
+  </p>
+</section>
+
+<!-- DUA FINALE -->
+<div id="dua">
+  <div class="ornement" style="background:linear-gradient(to right,transparent,var(--or),transparent); height:1px; margin-bottom:3rem;"></div>
+  <div class="bismillah-big" style="font-size:clamp(1rem,2.5vw,1.5rem); color:rgba(201,168,76,0.8); margin-bottom:2rem;">
+    دعاء الزواج
+  </div>
+  <div class="dua-arabic">
+    بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+  </div>
+  <div class="dua-translation">
+    « Qu'Allah te bénisse et répande Sa bénédiction sur toi, et qu'Il vous unisse dans le bien. »
+  </div>
+
+  <div class="divider-or" style="max-width:300px; margin:2rem auto;">
+    <span style="background:linear-gradient(to right,transparent,var(--or));"></span>
+    <div class="diamond"></div>
+    <span style="background:linear-gradient(to left,transparent,var(--or));"></span>
+  </div>
+
+  <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:1rem;">
+    Alhamdulillah · بارك الله فيكم
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-names">Aminata & Moussa</div>
+  <p>Avec tout notre amour ❤️ — Dakar, Sénégal 2025</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">Site créé avec ❤️ pour notre grand jour</p>
+</footer>
+
+<script>
+  // ========== ENTRÉE DU SITE ==========
+  function enterSite() {
+    const overlay = document.getElementById('music-overlay');
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    setTimeout(() => overlay.style.display = 'none', 800);
+
+    // Tentative lecture musique
+    const audio = document.getElementById('bgMusic');
+    audio.play().catch(() => {});
+  }
+
+  // ========== MUSIQUE ==========
+  let musicPlaying = false;
+  function toggleMusic() {
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('music-btn');
+    if (musicPlaying) {
+      audio.pause();
+      btn.textContent = '🔇';
+      musicPlaying = false;
+    } else {
+      audio.play().catch(() => {});
+      btn.textContent = '🎵';
+      musicPlaying = true;
+    }
+  }
+
+  // ========== CAROUSEL ==========
+  let currentSlide = 0;
+  const totalSlides = 5;
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('dots');
+
+  // Créer les dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goToSlide(n) {
+    currentSlide = (n + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+
+  // Auto-play carousel
+  setInterval(nextSlide, 4000);
+
+  // ========== COMPTE À REBOURS ==========
+  const weddingDate = new Date('2025-03-15T10:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ========== SCROLL REVEAL ==========
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
