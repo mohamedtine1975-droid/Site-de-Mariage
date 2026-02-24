@@ -1526,8 +1526,29 @@
       if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
+// ========== PARTAGER ==========
+function partagerSite() {
+  const url = window.location.href;
+  const texte = `🌙 *Mariage Aminata & Moussa*\n\nNous vous invitons à consulter notre invitation digitale :\n${url}\n\n_بارك الله فيكم_`;
 
+  if (navigator.share) {
+    navigator.share({ title: 'Mariage Aminata & Moussa', url: url });
+  } else {
+    window.open(`https://wa.me/?text=${encodeURIComponent(texte)}`, '_blank');
+  }
+}
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+<!-- BOUTON PARTAGER -->
+<div id="share-btn" onclick="partagerSite()" style="
+  position:fixed; bottom:5rem; right:1.5rem; z-index:999;
+  background:var(--or); color:var(--vert);
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; cursor:pointer;
+  box-shadow:0 4px 20px rgba(201,168,76,0.4);
+  transition:all 0.3s;" title="Partager">
+  🔗
+</div>
 </body>
 </html>
